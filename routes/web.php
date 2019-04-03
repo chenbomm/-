@@ -188,8 +188,90 @@ Route::middleware(['admin_auth','permission_auth'])->prefix('admin')->group(func
 
      
      /*#############################[小说相关]#############################*/
+
+    /*#############################[商品品牌相关]#############################*/
+    //品牌列表页面
+    Route::any('brand/list','Admin\BrandController@list')->name('admin.brand.list');
+    //品牌列表数据
+    Route::any('brand/data/list','Admin\BrandController@getListData')->name('admin.brand.data.list');
+    //品牌添加页面
+    Route::any('brand/add','Admin\BrandController@add')->name('admin.brand.add');
+    //执行品牌添加页面
+    Route::post('brand/doAdd','Admin\BrandController@doAdd')->name('admin.brand.doAdd');
+    //删除品牌
+    Route::get('brand/del/{id}','Admin\BrandController@del')->name('admin.brand.del');
+    //修改页面
+    Route::get('brand/edit/{id}','Admin\BrandController@edit')->name('admin.brand.edit');
+    //执行修改
+    Route::post('brand/doEdit','Admin\BrandController@doEdit')->name('admin.brand.doEdit');
+    //修改品牌的属性值
+    Route::post('brand/change/attr','Admin\BrandController@changeAttr')->name('admin.brand.change.attr');
+    /*#############################[商品品牌相关]#############################*/
+
+    /*#############################[商品分类相关]#############################*/
+    //商品分类页面
+    Route::get('categorys/list','Admin\CategorysController@list')->name('admin.categorys.list');
+    //获取商品接口分类的数据
+    Route::get('categorys/get/data/{fid}','Admin\CategorysController@getListData')->name('admin.categorys.get.data');
+    //商品添加页面
+    Route::get('categorys/add','Admin\CategorysController@add')->name('admin.categorys.add');
+    //执行商品添加页面
+    Route::post('categorys/doAdd','Admin\CategorysController@doAdd')->name('admin.categorys.doAdd');
+    //商品编辑页面
+    Route::get('categorys/edit/{id}','Admin\CategorysController@edit')->name('admin.categorys.edit');
+    //执行商品编辑操作
+    Route::post('categorys/doEdit','Admin\CategorysController@doEdit')->name('admin.categorys.doEdit');
+    //执行商品删除页面
+    Route::get('categorys/del/{id}','Admin\CategorysController@del')->name('admin.categorys.del');
+    /*#############################[商品分类相关]#############################*/
+
+    /*#############################[文章分类相关]#############################*/
+    //文章分类列表
+    Route::get('article/category/list','Admin\ArticleCategoryController@list')->name('admin.article.category.list');
+    //文章分类添加列表
+    Route::get('article/category/add','Admin\ArticleCategoryController@add')->name('admin.article.category.add');
+    //文章分类执行添加列表
+    Route::post('article/category/doAdd','Admin\ArticleCategoryController@doAdd')->name('admin.article.category.doAdd');
+    //文章分类执行删除
+    Route::get('article/category/del/{id}','Admin\ArticleCategoryController@del')->name('admin.article.category.del');
+    //文章分类编辑页面
+    Route::get('article/category/edit/{id}','Admin\ArticleCategoryController@edit')->name('admin.article.category.edit');
+    //文章分类执行编辑
+    Route::post('article/category/doEdit','Admin\ArticleCategoryController@doEdit')->name('admin.article.category.doEdit');
+    /*#############################[文章分类相关]#############################*/
+    /*#############################[文章相关]#############################*/
+    //列表页面
+    Route::get('article/list','Admin\ArticleController@list')->name('admin.article.list');
+    //添加页面
+    Route::get('article/add','Admin\ArticleController@add')->name('admin.article.add');
+    //执行添加页面
+    Route::post('article/doAdd','Admin\ArticleController@doAdd')->name('admin.article.doAdd');
+    //执行删除页面
+    Route::get('article/del/{id}','Admin\ArticleController@del')->name('admin.article.del');
+    //编辑页面
+    Route::get('article/edit/{id}','Admin\ArticleController@edit')->name('admin.article.edit');
+    //执行编辑添加
+    Route::post('article/doEdit','Admin\ArticleController@doEdit')->name('admin.article.doEdit');
+    /*#############################[文章相关]#############################*/
+
+    /*#############################[广告位相关]#############################*/
+    //广告位列表
+    Route::get('ad/position/list','Admin\AdPositionController@list')->name('admin.ad.position.list');
+    //广告位添加页面
+    Route::get('ad/position/add','Admin\AdPositionController@add')->name('admin.ad.position.add');
+    //执行添加
+    Route::post('ad/position/doAdd','Admin\AdPositionController@doAdd')->name('admin.ad.position.doAdd');
+    //执行删除
+    Route::get('ad/position/del/{id}','Admin\AdPositionController@del')->name('admin.ad.position.del');
+    //执行编辑页面
+    Route::get('ad/position/edit/{id}','Admin\AdPositionController@edit')->name('admin.ad.position.edit');
+    //执行编辑
+    Route::post('ad/position/doEdit','Admin\AdPositionController@doEdit')->name('admin.ad.position.doEdit');
+    /*#############################[广告位相关]#############################*/
+
 });
 
 //考试路由
      Route::get('lottery/index','Lottery\LotteryController@index');//展示页面
      Route::any('lottery/do','Lottery\LotteryController@doLottery');//执行抽奖
+
