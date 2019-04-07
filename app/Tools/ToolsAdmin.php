@@ -78,7 +78,6 @@ public static function buildTreeString($data,$fid=0,$level=0,$fKey='fid'){
 
 		//文件上传的目录
 		$basePath = 'uploads/'.date("Y-m-d",time());
-
 		//目录不存在
 		if(!file_exists($basePath)){
 			@mkdir($basePath, 755, true);

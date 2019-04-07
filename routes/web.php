@@ -269,6 +269,22 @@ Route::middleware(['admin_auth','permission_auth'])->prefix('admin')->group(func
     Route::post('ad/position/doEdit','Admin\AdPositionController@doEdit')->name('admin.ad.position.doEdit');
     /*#############################[广告位相关]#############################*/
 
+    /*#############################[广告相关]#############################*/
+    //列表
+    Route::get('ad/list','Admin\AdController@list')->name('admin.ad.list');
+    //添加页面
+    Route::get('ad/add','Admin\AdController@add')->name('admin.ad.add');
+    //添加执行
+    Route::post('ad/doAdd','Admin\AdController@doAdd')->name('admin.ad.doAdd');
+    //删除执行
+    Route::get('ad/del/{id}','Admin\AdController@del')->name('admin.ad.del');
+    //编辑页面
+    Route::get('ad/edit/{id}','Admin\AdController@edit')->name('admin.ad.edit');
+    //编辑执行
+    Route::post('ad/doEdit','Admin\AdController@doEdit')->name('admin.ad.doEdit');
+
+    /*#############################[广告相关]#############################*/
+
 });
 
 //考试路由
